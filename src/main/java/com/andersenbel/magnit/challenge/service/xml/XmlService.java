@@ -11,7 +11,7 @@ public interface XmlService {
 	 * @param pFile    - target file.
 	 * @param pEntries - entries for writing.
 	 */
-	public void writetToXml(final File pFile, final long[] pEntries);
+	public void writeToXml(final File pFile, final long[] pEntries);
 
 	/**
 	 * Optimize first XML data from a file and save it in separated file.

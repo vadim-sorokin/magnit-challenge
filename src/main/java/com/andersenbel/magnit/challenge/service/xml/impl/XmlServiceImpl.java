@@ -41,7 +41,7 @@ public class XmlServiceImpl implements XmlService, Serializable {
 	 * @param pEntries - entries for writing.
 	 */
 	@Override
-	public void writetToXml(final File pFile, final long[] pEntries) {
+	public void writeToXml(final File pFile, final long[] pEntries) {
 		if (pEntries != null && pEntries.length > 0) {
 			try {
 				final DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();

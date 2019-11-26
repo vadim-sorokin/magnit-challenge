@@ -74,7 +74,7 @@ public class TestServiceImpl implements TestService, Serializable {
 	 */
 	@Override
 	public void saveToXML(final File pTargetFile, final long[] pEntries) {
-		this.xmlService.writetToXml(pTargetFile, pEntries);
+		this.xmlService.writeToXml(pTargetFile, pEntries);
 	}
 
 	/**
