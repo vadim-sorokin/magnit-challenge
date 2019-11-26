@@ -4,3 +4,10 @@ The program is runnable as a simple Java project. All settings are stored in src
 Please check them and edit on demand in order to have successful application start.
 
 Approximate time of program execution is: 25 seconds
+
+DDL script:
+create schema magnit;
+create table test(
+    ID int primary key auto_increment unique,
+    FIELD int
+)
