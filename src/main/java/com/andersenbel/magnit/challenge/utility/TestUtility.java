@@ -1,9 +1,12 @@
 package com.andersenbel.magnit.challenge.utility;
 
+/**
+ * Utility class for common logic.
+ * 
+ * @author Vadim
+ *
+ */
 public final class TestUtility {
-	private TestUtility() {
-
-	}
 
 	public static String createJDBCUrl(final String pRdbms, final String pSocket, final String pSchema,
 			final String pUser, final String pPassword, final String pJdbcOptions) {
@@ -21,5 +24,9 @@ public final class TestUtility {
 		result.append("&");
 		result.append(pJdbcOptions);
 		return result.toString();
+	}
+
+	private TestUtility() {
+
 	}
 }

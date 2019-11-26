@@ -1,6 +1,13 @@
 package com.andersenbel.magnit.challenge.utility;
 
+/**
+ * Utility class for storing properties and files names.
+ * 
+ * @author Vadim
+ *
+ */
 public final class SettingsConstant {
+	// File contains main settings for Application
 	public final static String SETTINGS_PROPERTIES_FILE_NAME = "settings.properties";
 
 	// Datasource

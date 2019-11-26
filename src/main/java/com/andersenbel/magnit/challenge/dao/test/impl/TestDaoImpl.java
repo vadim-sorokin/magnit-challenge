@@ -9,6 +9,12 @@ import java.util.logging.Logger;
 
 import com.andersenbel.magnit.challenge.dao.test.TestDao;
 
+/**
+ * DAO class for working with entries in a database.
+ * 
+ * @author Vadim
+ *
+ */
 public class TestDaoImpl implements TestDao, Serializable {
 	private static final long serialVersionUID = 1L;
 	private final static Logger log = Logger.getLogger(TestDaoImpl.class.getName());
@@ -16,10 +22,17 @@ public class TestDaoImpl implements TestDao, Serializable {
 	private static final String TEST_TABLE_NAME = "TEST";
 	private static final String FIELD_COLUMN_NAME = "FIELD";
 
+	/**
+	 * Established connection with database.
+	 */
 	private Connection dbConnection;
 
+	/**
+	 * Insert into database required number of entries.
+	 * 
+	 * @param pCount - number of required entries.
+	 */
 	public void createNTests(final long pCount) throws SQLException {
-		truncateTest();
 		if (pCount > 0) {
 			dbConnection.setAutoCommit(false);
 			final StringBuilder sqlQuery = new StringBuilder();
@@ -44,6 +57,11 @@ public class TestDaoImpl implements TestDao, Serializable {
 		}
 	}
 
+	/**
+	 * Read all entries from database.
+	 * 
+	 * @return - an array of entries.
+	 */
 	public long[] readAllTests() throws SQLException {
 		long[] result = null;
 		final StringBuilder sqlQuery = new StringBuilder();
@@ -69,10 +87,16 @@ public class TestDaoImpl implements TestDao, Serializable {
 		resultSet.close();
 		preparedStatement.close();
 
+		log.info(String.valueOf((result != null ? result.length : 0) + " rows are read."));
+
 		return result;
 	}
 
-	private void truncateTest() throws SQLException {
+	/**
+	 * Delete all entries from a table.
+	 */
+	@Override
+	public void truncateTest() throws SQLException {
 		final StringBuilder sqlQuery = new StringBuilder();
 		sqlQuery.append("TRUNCATE ");
 		sqlQuery.append(TEST_TABLE_NAME);
@@ -80,6 +104,7 @@ public class TestDaoImpl implements TestDao, Serializable {
 		final PreparedStatement preparedStatement = this.dbConnection.prepareStatement(sqlQuery.toString());
 		preparedStatement.execute();
 		preparedStatement.close();
+		log.info(TEST_TABLE_NAME + " table is truncated.");
 	}
 
 	public Connection getDbConnection() {
